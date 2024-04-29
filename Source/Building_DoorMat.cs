@@ -16,7 +16,7 @@ namespace SyrDoorMats
 
         public void Notify_PawnApproaching(Pawn pawn)
         {
-            if (!pawn.IsPrisonerOfColony && (pawn.Faction == null || pawn.Faction.HostileTo(Faction.OfPlayer)))
+            if (!pawn.IsPrisonerOfColony && !pawn.IsSlaveOfColony && (pawn.Faction == null || pawn.Faction.HostileTo(Faction.OfPlayer)))
             {
                 return;
             }

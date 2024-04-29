@@ -34,9 +34,6 @@
 			<isEdifice>false</isEdifice>
 		</building>
 		<comps>
-			<li>
-				<compClass>CompQuality</compClass>
-			</li>
 		</comps>
 		<graphicData>
 			<texPath>Things/Building/DoorMat</texPath>

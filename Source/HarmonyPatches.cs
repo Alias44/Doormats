@@ -32,10 +32,7 @@ namespace SyrDoorMats
             if (___pawn != null)
             {
                 Building_DoorMat building_DoorMat = ___pawn.Map.thingGrid.ThingAt<Building_DoorMat>(__instance.nextCell);
-                if (building_DoorMat != null)
-                {
-                    building_DoorMat.Notify_PawnApproaching(___pawn);
-                }
+                building_DoorMat?.Notify_PawnApproaching(___pawn);
             }
         }
     }
@@ -44,9 +41,9 @@ namespace SyrDoorMats
     public static class CostToMoveIntoCellPatch
     {
         [HarmonyPostfix]
-        public static void CostToMoveIntoCell_Postfix(ref int __result, Pawn_PathFollower __instance, Pawn pawn, IntVec3 c)
+        public static void CostToMoveIntoCell_Postfix(ref float __result, Pawn_PathFollower __instance, Pawn pawn, IntVec3 c)
         {
-            if (DoorMatsSettings.slowdown > 0 && pawn != null && (pawn.IsColonist || pawn.IsPrisonerOfColony))
+            if (DoorMatsSettings.slowdown > 0 && pawn != null && (pawn.IsColonist || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony))
             {
                 if (pawn.Drafted || pawn.health.hediffSet.BleedRateTotal > 0.01)
                 {
