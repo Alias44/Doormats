@@ -8,7 +8,7 @@
 		<li>Latta</li>
 	</authors>
 	<packageId>Alias.Doormats</packageId>
-	<url>https://ludeon.com/forums/index.php?topic=43449</url>
+	<url>https://github.com/Alias44/DoorMats</url>
 	
 	<supportedVersions>
 		<li>1.5</li>
@@ -26,8 +26,5 @@
 	<description>Alternative version of the doormat mod. The original version works by making pawns drop a single filth stack regularly if they are on a doormat. This version makes them drop a single stack too, but clears any other filth they might still have on them, so no matter how much filth they have on them it will be condensed into a single stack.
 
 The result is that the doormats are far more powerful in keeping your base clean. Note that this is not necessarily balanced.
-	
-Original author: Latta
-Original page: https://steamcommunity.com/sharedfiles/filedetails/?id=727309536
 	</description>
 </ModMetaData>

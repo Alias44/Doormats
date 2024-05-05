@@ -7,8 +7,6 @@ Doormats - with a twist
 Adds leather and cloth doormats to prevent colonists from carrying filth into buildings. They are powerful at keeping filth in check but will will slow friendly, respectable folks down as they clean their feet while walking over them and as such will need to be cleaned regularly 
 
 ## Summary
-Note: Cloth doormats need the "carpet making" research, leather doormats do not.
-
 - Cleans pawn completely of any filth
 - Only drops a single filth layer on the mat
 - Very performance-friendly
