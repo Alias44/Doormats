@@ -8,11 +8,13 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SyrDoorMats</RootNamespace>
-    <AssemblyName>SyrDoorMats</AssemblyName>
+    <AssemblyName>DoorMats</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <LangVersion>latest</LangVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-	<CurrentVer>1.5</CurrentVer>
+    <CurrentVer>1.5</CurrentVer>
+    <rwBuild>1.5.*</rwBuild>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' != 'Debug|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -22,15 +24,20 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>portable</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\$(CurrentVer)\Assemblies\</OutputPath>
+    <OutputPath>..\$(CurrentVer)\Assemblies\</OutputPath>
     <DefineConstants>DEBUG</DefineConstants>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\$(CurrentVer)\Assemblies\</OutputPath>
+    <OutputPath>..\$(CurrentVer)\Assemblies\</OutputPath>
     <DefineConstants>RELEASE_CURRENT</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release 1.4|AnyCPU'">
+    <OutputPath>..\1.4\Assemblies\</OutputPath>
+    <DefineConstants>RELEASE_1_4</DefineConstants>
+    <rwBuild>1.4.*</rwBuild>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="BackCompatibilityConverter_ColoredMats.cs" />
@@ -43,11 +50,20 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref">
-      <Version>1.5.4069</Version>
+      <!--Version>1.5.4069</Version-->
+      <Version>$(rwBuild)</Version>
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
     <PackageReference Include="Lib.Harmony">
       <Version>2.3.3</Version>
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

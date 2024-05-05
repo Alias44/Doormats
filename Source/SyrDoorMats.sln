@@ -1,20 +1,53 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyrDoorMats", "SyrDoorMats.csproj", "{1550C798-2189-412F-ACEC-0C4688930135}"
+EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "RimWorldWin64", "..\..\..\RimWorldWin64.exe", "{8B0892E8-9880-48C7-8114-82AD1B315C4F}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\Program Files (x86)\Games\Steam\steamapps\common\RimWorld\RimWorldWin64.exe
+		RemoteMachine = $(computername)
+		StartingDirectory = C:\Program Files (x86)\Games\Steam\steamapps\common\RimWorld
+		Arguments = --doorstop-enabled true
+		Environment = Default
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+		IORedirection = Auto
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release 1.4|Any CPU = Release 1.4|Any CPU
+		Release 1.4|x64 = Release 1.4|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1550C798-2189-412F-ACEC-0C4688930135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1550C798-2189-412F-ACEC-0C4688930135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1550C798-2189-412F-ACEC-0C4688930135}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1550C798-2189-412F-ACEC-0C4688930135}.Debug|x64.Build.0 = Debug|Any CPU
+		{1550C798-2189-412F-ACEC-0C4688930135}.Release 1.4|Any CPU.ActiveCfg = Release 1.4|Any CPU
+		{1550C798-2189-412F-ACEC-0C4688930135}.Release 1.4|Any CPU.Build.0 = Release 1.4|Any CPU
+		{1550C798-2189-412F-ACEC-0C4688930135}.Release 1.4|x64.ActiveCfg = Release 1.4|Any CPU
+		{1550C798-2189-412F-ACEC-0C4688930135}.Release 1.4|x64.Build.0 = Release 1.4|Any CPU
 		{1550C798-2189-412F-ACEC-0C4688930135}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1550C798-2189-412F-ACEC-0C4688930135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1550C798-2189-412F-ACEC-0C4688930135}.Release|x64.ActiveCfg = Release|Any CPU
+		{1550C798-2189-412F-ACEC-0C4688930135}.Release|x64.Build.0 = Release|Any CPU
+		{8B0892E8-9880-48C7-8114-82AD1B315C4F}.Debug|Any CPU.ActiveCfg = Release|x64
+		{8B0892E8-9880-48C7-8114-82AD1B315C4F}.Debug|x64.ActiveCfg = Release|x64
+		{8B0892E8-9880-48C7-8114-82AD1B315C4F}.Release 1.4|Any CPU.ActiveCfg = Release|x64
+		{8B0892E8-9880-48C7-8114-82AD1B315C4F}.Release 1.4|x64.ActiveCfg = Release|x64
+		{8B0892E8-9880-48C7-8114-82AD1B315C4F}.Release|Any CPU.ActiveCfg = Release|x64
+		{8B0892E8-9880-48C7-8114-82AD1B315C4F}.Release|x64.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

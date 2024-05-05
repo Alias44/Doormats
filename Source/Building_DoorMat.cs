@@ -31,6 +31,7 @@ namespace SyrDoorMats
 				carriedFilthList.SetValue(pawn.filth, new List<Filth>());
 			}
 		}
+
 		public override void DrawGUIOverlay()
 		{
 			return;

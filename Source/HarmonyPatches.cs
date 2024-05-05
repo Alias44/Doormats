@@ -38,11 +38,11 @@ namespace SyrDoorMats
 		}
 	}
 
-	[HarmonyPatch(typeof(Pawn_PathFollower), "CostToMoveIntoCell", new Type[] { typeof(Pawn), typeof(IntVec3) })]
+	[HarmonyPatch(typeof(Pawn_PathFollower), "CostToMoveIntoCell", [typeof(Pawn), typeof(IntVec3)])]
 	public static class CostToMoveIntoCellPatch
 	{
 		[HarmonyPostfix]
-		public static void CostToMoveIntoCell_Postfix(ref float __result, Pawn_PathFollower __instance, Pawn pawn, IntVec3 c)
+		public static void CostToMoveIntoCell_Postfix(ref float __result, Pawn pawn, IntVec3 c)
 		{
 			if (DoorMatsSettings.slowdown > 0 && pawn != null && (pawn.IsColonist || pawn.IsPrisonerOfColony || pawn.IsSlaveOfColony))
 			{

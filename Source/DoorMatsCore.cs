@@ -19,7 +19,7 @@ namespace SyrDoorMats
 		{
 			checked
 			{
-				Listing_Standard listing_Standard = new Listing_Standard();
+				Listing_Standard listing_Standard = new();
 				listing_Standard.Begin(inRect);
 				listing_Standard.Label("SyrDoorMatsSlowdown".Translate() + ": " + DoorMatsSettings.slowdown, -1, "SyrDoorMatsSlowdownToolTip".Translate());
 				listing_Standard.Gap(6f);
