@@ -33,7 +33,10 @@
     <DefineConstants>RELEASE_CURRENT</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="BackCompatibilityConverter_ColoredMats.cs" />
     <Compile Include="Building_DoorMat.cs" />
+    <Compile Include="ColorDefOf.cs" />
+    <Compile Include="DoorMatDefOf.cs" />
     <Compile Include="DoorMatsCore.cs" />
     <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

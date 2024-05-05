@@ -4,6 +4,7 @@ using System.Reflection;
 using RimWorld;
 using Verse;
 using Verse.AI;
+using System.Collections.Generic;
 
 
 namespace SyrDoorMats
@@ -15,6 +16,11 @@ namespace SyrDoorMats
 		{
 			var harmony = new Harmony("Syrchalis.Rimworld.Doormats");
 			harmony.PatchAll(Assembly.GetExecutingAssembly());
+
+			List<BackCompatibilityConverter> compatibilityConverters = 
+				AccessTools.StaticFieldRefAccess<List<BackCompatibilityConverter>>(typeof(BackCompatibility), "conversionChain");
+
+			compatibilityConverters.Add(new BackCompatibilityConverter_ColoredMats());
 		}
 	}
 

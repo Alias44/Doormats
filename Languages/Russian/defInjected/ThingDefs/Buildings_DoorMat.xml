@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-	<DoorMatRed.label>Половик (красный)</DoorMatRed.label>
-	<DoorMatRed.description>Очищает ноги от грязи.</DoorMatRed.description>
+	<Alias_DoorMatSmall.label>Половик</Alias_DoorMatSmall.label>
+	<Alias_DoorMatSmall.description>Очищает ноги от грязи.</Alias_DoorMatSmall.description>
 
-	<DoorMatGreen.label>Половик (зеленый)</DoorMatGreen.label>
-	<DoorMatGreen.description>Очищает ноги от грязи.</DoorMatGreen.description>
-
-	<DoorMatBlue.label>Половик (синий)</DoorMatBlue.label>
-	<DoorMatBlue.description>Очищает ноги от грязи.</DoorMatBlue.description>
-
-	<DoorMatBigRed.label>Большой половик (красный)</DoorMatBigRed.label>
-	<DoorMatBigRed.description>Очищает ноги от грязи.</DoorMatBigRed.description>
-
-	<DoorMatBigGreen.label>Большой половик (зеленый)</DoorMatBigGreen.label>
-	<DoorMatBigGreen.description>Очищает ноги от грязи.</DoorMatBigGreen.description>
-
-	<DoorMatBigBlue.label>Большой половик (синий)</DoorMatBigBlue.label>
-	<DoorMatBigBlue.description>Очищает ноги от грязи.</DoorMatBigBlue.description>
+	<Alias_DoorMatLarge.label>Большой половик</Alias_DoorMatLarge.label>
+	<Alias_DoorMatLarge.description>Очищает ноги от грязи.</Alias_DoorMatLarge.description>
 </LanguageData>
