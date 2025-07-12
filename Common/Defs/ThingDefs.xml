@@ -139,7 +139,7 @@
 			</blueprintGraphicData>
 		</building>
 		<uiIconPath>Things/Building/doormatLinkedIcon</uiIconPath>
-		<placingDraggableDimensions>2</placingDraggableDimensions>
+		<drawStyleCategory>Walls</drawStyleCategory>
 		<rotatable>false</rotatable>
 		<stuffCategories>
 			<li>Fabric</li>
