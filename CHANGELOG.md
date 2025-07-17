@@ -1,3 +1,6 @@
+# v1.2.2
+- Bugfix: Wrong xpath for legacy patching
+
 # v1.2.1
 - 1.6 update
 - Optimized harmony patches to fail out faster if a doormat isn't present

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 	<Operation Class="PatchOperationReplace">
-		<xpath>Defs/TraitDef[defName="Alias_DoorMatLinked"]/drawStyleCategory</xpath>
+		<xpath>Defs/ThingDef[defName="Alias_DoorMatLinked"]/drawStyleCategory</xpath>
 		<value>
 			<placingDraggableDimensions>2</placingDraggableDimensions>
 		</value>
