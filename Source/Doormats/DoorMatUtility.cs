@@ -1,9 +1,4 @@
 ﻿using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Verse;
 
 namespace SyrDoormats;
@@ -13,13 +8,13 @@ public static class DoorMatUtility
 	/// preforms null checking and compares the intelligenceOrder of two TrainabilityDefs
 	/// </summary>
 	/// <returns>true if both are non-null and a's intelligenceOrder is greater than or equal to b's</returns>
-	public static bool CompareTrainabilityDef(TrainabilityDef a, TrainabilityDef b)
+	public static bool CompareTrainabilityDef(TrainabilityDef? a, TrainabilityDef? b)
 	{
 		return (a != null && b != null) && a.intelligenceOrder >= b.intelligenceOrder;
 	}
 
 	/// <summary>
-	/// Logic checks for if a given animal pawn can us doormts
+	/// Logic checks for if a given animal pawn can us doormats
 	/// </summary>
 	public static bool AnimalCanUseDoormat(Pawn pawn)
 	{
@@ -32,9 +27,9 @@ public static class DoorMatUtility
 	}
 
 	/// <summary>
-	/// Logic checks if a given pawn can us doormts
+	/// Logic checks if a given pawn can use doormats
 	/// </summary>
-	public static bool PawnCanUseDoormat(Pawn pawn)
+	public static bool PawnCanUseDoormat(Pawn? pawn)
 	{
 		return pawn != null &&
 		  !(pawn.HostileTo(Faction.OfPlayer) || pawn.InAggroMentalState) && // Non-hostile paws

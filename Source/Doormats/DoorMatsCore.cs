@@ -1,120 +1,117 @@
 ﻿using RimWorld;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using Verse;
 
-namespace SyrDoormats
+namespace SyrDoormats;
+
+public class DoorMatsCore : Mod
 {
-	public class DoorMatsCore : Mod
+	public static DoorMatsSettings settings = null!;
+
+	public DoorMatsCore(ModContentPack content) : base(content)
 	{
-		public static DoorMatsSettings settings;
+		settings = GetSettings<DoorMatsSettings>();
+	}
 
-		public DoorMatsCore(ModContentPack content) : base(content)
+	public override string SettingsCategory() => "SyrDoorMatsSettingsCategory".Translate();
+
+	public override void DoSettingsWindowContents(Rect inRect)
+	{
+		checked
 		{
-			settings = GetSettings<DoorMatsSettings>();
-		}
+			Listing_Standard listing = new();
+			listing.Begin(inRect);
+			listing.Label("SyrDoorMatsSlowdown".Translate() + ": " + DoorMatsSettings.slowdown, -1, tooltip: "SyrDoorMatsSlowdownToolTip".Translate());
+			listing.Gap(6f);
+			DoorMatsSettings.slowdown = (int)listing.Slider(GenMath.RoundTo(DoorMatsSettings.slowdown, 5), 0, 100);
 
-		public override string SettingsCategory() => "SyrDoorMatsSettingsCategory".Translate();
+			listing.Gap();
+			listing.CheckboxLabeled("SyrDoorMatsAnimalsAllow".Translate(), ref DoorMatsSettings.allowAnimals, "SyrDoorMatsAnimalsAllowTip".Translate());
 
-		public override void DoSettingsWindowContents(Rect inRect)
-		{
-			checked
+			// Animals
+			if (DoorMatsSettings.allowAnimals && listing.ButtonTextLabeled("SyrDoorMatsAnimalsMinIntelligence".Translate(), DoorMatsSettings.RequiredIntelligenceDisplay(), tooltip: "SyrDoorMatsAnimalsIntelligenceToolTip".Translate()))
 			{
-				Listing_Standard listing = new();
-				listing.Begin(inRect);
-				listing.Label("SyrDoorMatsSlowdown".Translate() + ": " + DoorMatsSettings.slowdown, -1, tooltip: "SyrDoorMatsSlowdownToolTip".Translate());
-				listing.Gap(6f);
-				DoorMatsSettings.slowdown = (int)listing.Slider(GenMath.RoundTo(DoorMatsSettings.slowdown, 5), 0, 100);
+				List<FloatMenuOption> options = [new FloatMenuOption("Disabled".Translate(), () => DoorMatsSettings.RequiredIntelligence = null)];
 
-				listing.Gap();
-				listing.CheckboxLabeled("SyrDoorMatsAnimalsAllow".Translate(), ref DoorMatsSettings.allowAnimals, "SyrDoorMatsAnimalsAllowTip".Translate());
-
-				// Animals
-				if (DoorMatsSettings.allowAnimals && listing.ButtonTextLabeled("SyrDoorMatsAnimalsMinIntelligence".Translate(), DoorMatsSettings.RequiredIntelligenceDisplay(), tooltip: "SyrDoorMatsAnimalsIntelligenceToolTip".Translate()))
+				foreach (var def in DefDatabase<TrainabilityDef>.AllDefs.OrderBy(def => def.intelligenceOrder).Reverse())
 				{
-					List<FloatMenuOption> options = [new FloatMenuOption("Disabled".Translate(), () => DoorMatsSettings.RequiredIntelligence = null)];
+					string label = def.LabelCap;
 
-					foreach (var def in DefDatabase<TrainabilityDef>.AllDefs.OrderBy(def => def.intelligenceOrder).Reverse())
+					if(def.Equals(TrainabilityDefOf.None))
 					{
-						string label = def.LabelCap;
-
-						if(def.Equals(TrainabilityDefOf.None))
-						{
-							label += "SyrDoorMatsAnimalsAll".Translate();
-						}
-
-						options.Add(new FloatMenuOption(label, () => DoorMatsSettings.RequiredIntelligence = def));
+						label += "SyrDoorMatsAnimalsAll".Translate();
 					}
 
-					Find.WindowStack.Add(new FloatMenu(options));
+					options.Add(new FloatMenuOption(label, () => DoorMatsSettings.RequiredIntelligence = def));
 				}
 
-				listing.Gap(24f);
-				if (listing.ButtonText("RestoreToDefaultSettings".Translate(), "RestoreToDefaultSettingsLabel".Translate()))
-				{
-					DoorMatsSettings.ResetToDefault();
-				}
-
-				listing.End();
-				settings.Write();
+				Find.WindowStack.Add(new FloatMenu(options));
 			}
-		}
 
-		public override void WriteSettings()
-		{
-			base.WriteSettings();
+			listing.Gap(24f);
+			if (listing.ButtonText("RestoreToDefaultSettings".Translate(), "RestoreToDefaultSettingsLabel".Translate()))
+			{
+				DoorMatsSettings.ResetToDefault();
+			}
+
+			listing.End();
+			settings.Write();
 		}
 	}
 
-	public class DoorMatsSettings : ModSettings
+	public override void WriteSettings()
 	{
-		public static int slowdown = 40;
-		public static bool allowAnimals = false;
-		private static string defString;
-        private static TrainabilityDef requiredIntelligence = null;
+		base.WriteSettings();
+	}
+}
 
-		public static TrainabilityDef RequiredIntelligence
+public class DoorMatsSettings : ModSettings
+{
+	public static int slowdown = 40;
+	public static bool allowAnimals = false;
+	private static string? defString;
+	private static TrainabilityDef? requiredIntelligence = null;
+
+	public static TrainabilityDef? RequiredIntelligence
+	{
+		get
 		{
-			get
+			if (defString != null)
 			{
-				if (defString != null)
-				{
-					requiredIntelligence = DefDatabase<TrainabilityDef>.GetNamedSilentFail(defString);
-				}
-
-				return requiredIntelligence;
+				requiredIntelligence = DefDatabase<TrainabilityDef>.GetNamedSilentFail(defString);
 			}
 
-			set
-			{
-				requiredIntelligence = value;
-				defString = requiredIntelligence?.defName;
-			}
+			return requiredIntelligence;
 		}
 
-		public override void ExposeData()
+		set
 		{
-			base.ExposeData();
-			Scribe_Values.Look<int>(ref slowdown, "SyrDoorMatsSlowdown", 40, true);
-			Scribe_Values.Look(ref defString, "requiredIntelligence");
-
-			if(Scribe.mode == LoadSaveMode.LoadingVars)
-			{
-				allowAnimals = !defString.NullOrEmpty();
-			}
+			requiredIntelligence = value;
+			defString = requiredIntelligence?.defName;
 		}
+	}
 
-		public static void ResetToDefault()
+	public override void ExposeData()
+	{
+		base.ExposeData();
+		Scribe_Values.Look<int>(ref slowdown, "SyrDoorMatsSlowdown", 40, true);
+		Scribe_Values.Look(ref defString, "requiredIntelligence");
+
+		if(Scribe.mode == LoadSaveMode.LoadingVars)
 		{
-			slowdown = 40;
-			allowAnimals = false;
-			RequiredIntelligence = null;
+			allowAnimals = !defString.NullOrEmpty();
 		}
+	}
 
-		public static string RequiredIntelligenceDisplay()
-		{
-			return RequiredIntelligence?.LabelCap ?? "Disabled".Translate();
-		}
+	public static void ResetToDefault()
+	{
+		slowdown = 40;
+		allowAnimals = false;
+		RequiredIntelligence = null;
+	}
+
+	public static string RequiredIntelligenceDisplay()
+	{
+		return RequiredIntelligence?.LabelCap ?? "Disabled".Translate();
 	}
 }

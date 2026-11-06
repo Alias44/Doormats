@@ -8,12 +8,13 @@
 		<li>Latta</li>
 	</authors>
 	<packageId>Alias.Doormats</packageId>
-	<modVersion IgnoreIfNoMatchingField="True">1.2.2</modVersion>
+	<modVersion>1.2.2</modVersion>
 	<url>https://github.com/Alias44/DoorMats</url>
 	
 	<supportedVersions>
 		<li>1.5</li>
 		<li>1.6</li>
+		<li>1.7</li>
 	</supportedVersions>
 	
 	<modDependencies>

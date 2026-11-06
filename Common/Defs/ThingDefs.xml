@@ -2,7 +2,7 @@
 <Defs>
 	<!-- Abstracts -->
 	<ThingDef Abstract="True" ParentName="BuildingBase" Name="DoorMatBase">
-		<thingClass>SyrDoorMats.Building_DoorMat</thingClass>
+		<thingClass>SyrDoormats.Building_Doormat</thingClass>
 		<description>A doormat to clean your feet.</description>
 		<thingCategories>
 			<li>BuildingsFurniture</li>
