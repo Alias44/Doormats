@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using Verse;
 
-namespace SyrDoorMats
+namespace SyrDoormats
 {
 	public class DoorMatsCore : Mod
 	{

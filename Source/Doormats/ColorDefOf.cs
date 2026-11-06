@@ -1,6 +1,6 @@
 ﻿using RimWorld;
 
-namespace SyrDoorMats
+namespace SyrDoormats
 {
 	[DefOf]
 	public static class ColorDefOf

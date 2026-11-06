@@ -6,7 +6,7 @@ using System.Linq;
 using System.Xml;
 using Verse;
 
-namespace SyrDoorMats
+namespace SyrDoormats
 {
 	public class BackCompatibilityConverter_ColoredMats : BackCompatibilityConverter
 	{

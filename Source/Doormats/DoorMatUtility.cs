@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Verse;
 
-namespace SyrDoorMats;
+namespace SyrDoormats;
 public static class DoorMatUtility
 {
 	/// <summary>

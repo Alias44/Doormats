@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 
 
-namespace SyrDoorMats
+namespace SyrDoormats
 {
 	[StaticConstructorOnStartup]
 	public static class HarmonyPatches

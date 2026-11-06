@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace SyrDoorMats
+namespace SyrDoormats
 {
 	[DefOf]
 	public static class DoorMatDefOf

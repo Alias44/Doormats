@@ -3,7 +3,7 @@ using RimWorld;
 using Verse;
 using System.Reflection;
 
-namespace SyrDoorMats
+namespace SyrDoormats
 {
 	public class Building_DoorMat : Building
 	{
