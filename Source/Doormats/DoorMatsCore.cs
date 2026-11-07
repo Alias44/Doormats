@@ -23,7 +23,7 @@ public class DoorMatsCore : Mod
 			listing.Begin(inRect);
 			listing.Label("SyrDoorMatsSlowdown".Translate() + ": " + DoorMatsSettings.slowdown, -1, tooltip: "SyrDoorMatsSlowdownToolTip".Translate());
 			listing.Gap(6f);
-			DoorMatsSettings.slowdown = (int)listing.Slider(GenMath.RoundTo(DoorMatsSettings.slowdown, 5), 0, 100);
+			DoorMatsSettings.slowdown = (ushort)listing.Slider(GenMath.RoundTo(DoorMatsSettings.slowdown, 5), 0, 100);
 
 			listing.Gap();
 			listing.CheckboxLabeled("SyrDoorMatsAnimalsAllow".Translate(), ref DoorMatsSettings.allowAnimals, "SyrDoorMatsAnimalsAllowTip".Translate());
@@ -67,7 +67,7 @@ public class DoorMatsCore : Mod
 
 public class DoorMatsSettings : ModSettings
 {
-	public static int slowdown = 40;
+	public static ushort slowdown = 40;
 	public static bool allowAnimals = false;
 	private static string? defString;
 	private static TrainabilityDef? requiredIntelligence = null;
@@ -94,7 +94,7 @@ public class DoorMatsSettings : ModSettings
 	public override void ExposeData()
 	{
 		base.ExposeData();
-		Scribe_Values.Look<int>(ref slowdown, "SyrDoorMatsSlowdown", 40, true);
+		Scribe_Values.Look<ushort>(ref slowdown, "SyrDoorMatsSlowdown", 40, true);
 		Scribe_Values.Look(ref defString, "requiredIntelligence");
 
 		if(Scribe.mode == LoadSaveMode.LoadingVars)

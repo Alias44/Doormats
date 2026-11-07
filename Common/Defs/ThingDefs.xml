@@ -10,7 +10,7 @@
 		<building>
 			<ai_chillDestination>false</ai_chillDestination>
 			<canPlaceOverImpassablePlant>false</canPlaceOverImpassablePlant>
-			<isEdifice>false</isEdifice>
+			<isEdifice>true</isEdifice>
 			<paintable>true</paintable>
 		</building>
 		<comps>
@@ -37,7 +37,7 @@
 		<repairEffect>Repair</repairEffect>
 		<rotatable>true</rotatable>
 		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<tickerType>Never</tickerType>
+		<tickerType>Normal</tickerType>
 		<tradeTags>
 			<li>Furniture</li>
 		</tradeTags>
