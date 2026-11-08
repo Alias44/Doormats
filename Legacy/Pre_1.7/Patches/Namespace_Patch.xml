@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="DoorMatBase"]/thingClass</xpath>
+		<value>
+			<thingClass>SyrDoorMats.Building_DoorMat</thingClass>
+		</value>
+	</Operation>
+
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="DoorMatBase"]/building/isEdifice</xpath>
+		<value>
+			<isEdifice>false</isEdifice>
+		</value>
+	</Operation>
+	
+	<Operation Class="PatchOperationReplace">
+		<xpath>Defs/ThingDef[@Name="DoorMatBase"]/tickerType</xpath>
+		<value>
+			<tickerType>Never</tickerType>
+		</value>
+	</Operation>
+</Patch>

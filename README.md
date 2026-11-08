@@ -29,3 +29,10 @@ None known
 * to Latta for making the [original B18 mod](https://steamcommunity.com/sharedfiles/filedetails/?id=727309536)
 * to Syrchalis for updating and maintaining the mod [(v1.0 - 1.4)](https://steamcommunity.com/sharedfiles/filedetails/?id=1508778962)
 * to SirHumphreyAppleby (sirhumphreyappleby_ on discord) for updating the mod to 1.5 and allowing me to pick up the torch and maintain the mod
+
+
+## AI
+NO! NOPE! NEVER! Call me stubborn and old-fashioned, but there's no chance in this life or any other that I allow the glorified plagiarism machines anywhere near my projects.
+I take pride in my work and being able to say without a shadow of a doubt that human made every art asset, bit of code, and typo is deeply important to me.
+
+![Made without AI badge](https://noailist.org/images/badge.png)

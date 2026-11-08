@@ -1,3 +1,11 @@
+# v1.3.0
+- 1.7 update
+- Converted patches on the games movement code to properties of the object itself
+- Added mod setting to only apply slowdown when a pawn has filth to drop
+- Changed filth logic to drop all filth stacks instead of just one piece of one stack
+
+
+
 # v1.2.2
 - Bugfix: Wrong xpath for legacy patching
 
