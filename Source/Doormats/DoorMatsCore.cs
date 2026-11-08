@@ -21,10 +21,13 @@ public class DoorMatsCore : Mod
 		{
 			Listing_Standard listing = new();
 			listing.Begin(inRect);
-			listing.Label("SyrDoorMatsSlowdown".Translate() + ": " + DoorMatsSettings.slowdown, -1, tooltip: "SyrDoorMatsSlowdownToolTip".Translate());
+			listing.Label("SyrDoorMatsSlowdown".Translate() + ": " + DoorMatsSettings.slowdown, -1, tooltip: "SyrDoorMatsSlowdownTooltip".Translate());
 			listing.Gap(6f);
 			DoorMatsSettings.slowdown = (ushort)listing.Slider(GenMath.RoundTo(DoorMatsSettings.slowdown, 5), 0, 100);
 
+			listing.Gap();
+			listing.CheckboxLabeled("SyrDoorMatsSlowdownIfDirty".Translate(), ref DoorMatsSettings.slowdownIfDirty, "SyrDoorMatsSlowdownIfDirtyTip".Translate());
+			
 			listing.Gap();
 			listing.CheckboxLabeled("SyrDoorMatsAnimalsAllow".Translate(), ref DoorMatsSettings.allowAnimals, "SyrDoorMatsAnimalsAllowTip".Translate());
 
@@ -70,7 +73,7 @@ public class DoorMatsSettings : ModSettings
 	public static ushort slowdown = 40;
 	public static bool allowAnimals = false;
 	private static string? defString;
-	private static TrainabilityDef? requiredIntelligence = null;
+	public static bool slowdownIfDirty = false;
 
 	public static TrainabilityDef? RequiredIntelligence
 	{
@@ -78,18 +81,18 @@ public class DoorMatsSettings : ModSettings
 		{
 			if (defString != null)
 			{
-				requiredIntelligence = DefDatabase<TrainabilityDef>.GetNamedSilentFail(defString);
+				field = DefDatabase<TrainabilityDef>.GetNamedSilentFail(defString);
 			}
 
-			return requiredIntelligence;
+			return field;
 		}
 
 		set
 		{
-			requiredIntelligence = value;
-			defString = requiredIntelligence?.defName;
+			field = value;
+			defString = field?.defName;
 		}
-	}
+	} = null;
 
 	public override void ExposeData()
 	{
@@ -101,6 +104,8 @@ public class DoorMatsSettings : ModSettings
 		{
 			allowAnimals = !defString.NullOrEmpty();
 		}
+		
+		Scribe_Values.Look(ref slowdownIfDirty, "slowdownIfDirty");
 	}
 
 	public static void ResetToDefault()
@@ -108,6 +113,7 @@ public class DoorMatsSettings : ModSettings
 		slowdown = 40;
 		allowAnimals = false;
 		RequiredIntelligence = null;
+		slowdownIfDirty = false;
 	}
 
 	public static string RequiredIntelligenceDisplay()

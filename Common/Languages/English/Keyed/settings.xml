@@ -4,8 +4,11 @@
 	
 	<!-- Slowdown -->
 	<SyrDoorMatsSlowdown>Slowdown strength (default: 40)</SyrDoorMatsSlowdown>
-	<SyrDoorMatsSlowdownTooltip>Simulates pawn cleaning their feet by slowing them on doormats, does not affect pathfinding</SyrDoorMatsSlowdownTooltip>
+	<SyrDoorMatsSlowdownTooltip>Simulates a person (or animal) cleaning their feet by slowing them on doormats, does not affect pathfinding</SyrDoorMatsSlowdownTooltip>
 	
+    <SyrDoorMatsSlowdownIfDirty>Slowdown only when dirty</SyrDoorMatsSlowdownIfDirty>
+    <SyrDoorMatsSlowdownIfDirtyTip>Slowdown will only be applied when a person (or animal) is carrying filth</SyrDoorMatsSlowdownIfDirtyTip>
+    
 	<!-- Animals -->
 	<SyrDoorMatsAnimalsAllow>Allow animals to use doormats</SyrDoorMatsAnimalsAllow>
 	<SyrDoorMatsAnimalsAllowTip>Note: this may have significant performance impacts</SyrDoorMatsAnimalsAllowTip>
